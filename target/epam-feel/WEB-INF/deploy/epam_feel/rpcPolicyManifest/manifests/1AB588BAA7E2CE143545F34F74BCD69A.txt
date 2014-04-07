@@ -1,0 +1,2 @@
+serviceClass: com.epam.feel.shared.service.ClientInfoService
+path: 3C9231191568AB51A1C8774CF63511E3.gwt.rpc

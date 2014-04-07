@@ -1,0 +1,9 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with field='constants' type='com.epam.feel.client.EpamFeelConstants'/>
+	<g:VerticalPanel horizontalAlignment="CENTER" width="100%">
+		<g:Anchor text="{constants.enterAsAdmin}" ui:field="asAdminLink" />
+		<g:Anchor text="{constants.enterAsClient}" ui:field="asClientLink" />		
+	</g:VerticalPanel>
+</ui:UiBinder> 

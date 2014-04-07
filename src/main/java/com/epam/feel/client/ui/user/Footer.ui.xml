@@ -1,0 +1,13 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with field='constants' type='com.epam.feel.client.EpamFeelConstants' />
+	<ui:with field='st' type='com.epam.feel.client.EpamFeelResources' />
+	<g:HorizontalPanel width="100%" styleName="{st.global.footer}">
+		<g:HorizontalPanel>
+			<g:Label text="{constants.adminAddressLabel}" styleName="{st.global.footerLabel}"/>
+			<g:HorizontalPanel ui:field="adminsPanel" styleName="{st.global.footerAdminLinks}"/>
+		</g:HorizontalPanel>
+		<g:Label styleName="{st.global.footerLabelCopy}" ui:field="copyright"/>
+	</g:HorizontalPanel>
+</ui:UiBinder>

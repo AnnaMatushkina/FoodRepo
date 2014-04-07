@@ -1,0 +1,6 @@
+# Module epam_feel
+# RPC service class, partial path of RPC policy file
+com.epam.feel.shared.service.ClientInfoService, 3C9231191568AB51A1C8774CF63511E3.gwt.rpc
+com.epam.feel.shared.service.RequestInfoService, E2F11A9BD732EB04C545094C420D921F.gwt.rpc
+com.epam.feel.shared.service.MenuInfoService, 8223D41B22F3E5D69243812C71B20E66.gwt.rpc
+com.epam.feel.shared.service.HistoryInfoService, C994BE10E7B9E19FAD722F0AD4348975.gwt.rpc

@@ -1,0 +1,485 @@
+/* --------- Common styles --------- */
+body,table {
+	font-size: small;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	color: #000;
+	background: #FFFFFF;
+}
+
+a,a:visited {
+	cursor: pointer;
+	cursor: hand;
+	color: #6F7277;
+	text-decoration: underline;
+} 
+
+a:hover {
+	color: #333333;
+	text-decoration: none;
+}
+
+/* --------- Header styles --------- */
+.header {
+	font-size: 42px;
+	font-family: 'Segoe Print', 'Monotype Corsiva', cursive;
+	height: 80px;
+	width: 100%;
+	text-align: center;
+	margin: auto;
+	text-decoration: none;
+	color: #000;
+}
+
+.centerBox {
+	text-align: center;
+	vertical-align: middle;
+	height: 100%;
+}
+
+.headerMainTable {
+	width: 100%;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.headerPersonalAccountLabel {
+	font-size: 18px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #6F7277;
+}
+
+.headerPersonalAccountNum,.headerPayment {
+	font-size: 12px;
+}
+.headerDecoratorPanel {
+	left: auto !important;
+	bottom: auto !important;
+}
+.gwt-DecoratorPanel {
+	padding: 5px 5px 0 0 !important;
+	height: 95%;
+}
+.gwt-DecoratorPanel .middleCenter {
+  height: 95%;
+}
+.imgAdvice {
+	cursor: pointer;
+	margin-right: 2px;
+}
+
+/* --------- Footer styles --------- */
+.footer {
+	border-top: 1px solid #CCCCCC;
+}
+
+.footerLabel,.footerLabelCopy,.footerAdminLinks {
+	font-size: 0.9em;
+	padding: 5px;
+}
+
+.footerLabelCopy {
+	text-align: right;
+}
+
+.footerAdminLinks a {
+	font-size: 0.9em;
+	text-decoration: none;
+}
+
+.footerAdminLinks a:hover {
+	text-decoration: underline;
+}
+
+/* --------- Button styles from standard theme --------- */
+.gwt-Button {
+	padding: 3px 5px !important;
+	background: url('epam_feel/hborderstandard.png') repeat-x 0px -27px
+		!important;
+	border: 1px outset #ccc !important;
+}
+
+.gwt-Button:hover {
+	border-color: #9cf #69e #69e #7af !important;
+}
+
+/* --------- StackLayoutPanel styles from chrome theme --------- */
+.gwt-StackLayoutPanel .gwt-StackLayoutPanelHeader {
+	background: #d3def6 url('epam_feel/hborderchrome.png') repeat-x 0px
+		-989px !important;
+	font-size: 1.1em !important;
+	padding: 4px !important;
+	color: #333333 !important;
+}
+
+.gwt-StackLayoutPanel .gwt-StackLayoutPanelHeader-hovering {
+	background: #d3def6 url('epam_feel/hborderchrome.png') repeat-x 0px
+		-1464px !important;
+}
+.gwt-StackLayoutPanelContent {
+	border: 1px solid #BBBBBB !important;
+}
+
+/* --------- InputBox styles --------- */
+.gwt-TextBox, .gwt-DateBox {
+	height: auto !important;
+	padding: 1px !important;
+}
+
+/* --------- ListBox styles --------- */
+.gwt-ListBox {
+	border-width: 1px !important;
+}
+
+
+
+/*-------------- Hint label styles ------------------*/
+.hint {
+	font-size: 11px;
+	color: #8e8e8e;
+}
+
+
+/*-------------- Calendar image styles --------------------*/
+.calendarImage {
+	cursor: pointer;
+  	cursor: hand; 
+}
+
+/*-------------- Labels styles ---------------------*/
+.boldDateLabel {
+	font-weight: bold;
+	color: #4B4A4A;
+}
+.labelWithField {
+	margin-right: 10px;
+}
+
+.labelBetweenFields {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+/*------------- Margins ----------------------*/
+.leftLargeMargin {
+	margin-left: 100px;
+}
+
+.leftMediumMargin {
+	margin-left: 60px;
+}
+
+.leftSmallMargin {
+	margin-left: 30px;
+}
+
+.rightSmallMargin {
+	margin-right: 10px;
+}
+
+/* --------- DatePicker --------------------- */
+
+/*
+* Global widget style.
+*/
+.gwt-DatePicker {
+  border: 1px solid #6f7277;
+  border-bottom: 2px solid #6f7277;
+  color: 6b6b6b;
+  cursor: default;
+  width: 7em;
+}
+
+.datePickerDay,.datePickerWeekdayLabel,.datePickerWeekendLabel {
+  font-family: Arial;
+  font-size: 90%;
+  text-align: center;
+  padding: 7px;
+  outline: none;
+  cursor: default;
+}
+
+.gwt-DatePicker td,.datePickerMonthSelector  td :focus {
+  outline: none
+}
+
+.gwt-DateBox input {
+  width: 8em;
+}
+
+/*
+* Calendar styles
+*/
+.datePickerDays {
+  background-color: white;
+  width: 100%;
+}
+
+.datePickerWeekdayLabel {
+  background: #cccccc;
+}
+
+.datePickerWeekendLabel {
+  background: #8e8e8e;
+}
+
+.datePickerDay {
+  padding: 1px;
+  cursor: hand;
+  width: 1em;
+}
+
+.datePickerDayIsToday {
+  border: 1px solid black;
+  padding: 0px;
+}
+
+.datePickerDayIsWeekend {
+  background: #f1f1f1;
+}
+
+.datePickerDayIsFiller {
+  color: #bfbfbf;
+  padding: 1px;
+  cursor: hand;
+}
+
+.datePickerDayIsSelected {
+  background: #aaccee;
+}
+
+.datePickerDayIsDisabled {
+  color: graytext;
+}
+
+.datePickerDayIsHighlighted {
+  border: 1px solid #eeeeee;
+  padding: 0px;
+}
+
+.datePickerDayIsSelectedAndHighlighted {
+   background: #bbddff;
+}
+
+
+/*
+* Month selector styles
+*/
+.datePickerMonthSelector {
+  background: #cccccc;
+  width: 100%;
+  text-align: center;
+}
+
+.datePickerMonth {
+  text-align: center;
+  vertical-align: center;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 70%;
+}
+
+.datePickerPreviousButton {
+   text-align: left;
+}
+
+.datePickerNextButton {
+     text-align: right;
+}
+
+.tableMenuHeader {
+	border-bottom: 1px solid #6f7277;
+	padding: 3px 15px;
+	color: #4b4a4a;
+	overflow: hidden;
+	white-space: nowrap;
+	background-color: #EEEEEE;
+	font-weight: bold;
+}
+
+.tableMenuDishRow {
+	padding: 2px 15px;
+	overflow: hidden;
+}
+
+.tableMenuDishType {
+	padding: 2px 15px;
+	overflow: hidden;
+	text-align: left;
+	font-style: italic;
+	background-color: #F6F6F6;
+}
+
+.tableMenu {
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.noUnderlineAnchor{
+	text-decoration: none;
+	font-size: medium;
+}
+
+.rightText{
+	text-align: right;
+}
+
+.leftText{
+	text-align: left;
+}
+
+
+
+/*----- style for right alignment ----*/
+.floatRight {
+	float:right;
+}
+
+
+/*--- style for text of chief and popular dishes ---*/
+.smallText {
+	font-size: 85%;
+}
+
+/*--- style for descriptions of chief and popular dishes ---*/
+.smallTextSelected {
+	color: #4b4a4a;
+	font-weight: bold;
+}
+
+/*--- style for text of reason decline or delete of request of admin ---*/
+.gwt-RichTextArea {
+border-width: 1px !important;
+}
+
+.dataGridHeaderHide {
+	display: none;
+}
+
+
+
+/* --------- Styles for TimeView input --- */
+.timeViewInput {
+	border: 1px solid #cccccc;
+	text-align: center;
+	width: 22px;
+}
+
+/* --------- Styles for spinner --------- */
+
+.spinnerUpPressed, .spinnerDownPressed,
+.spinnerUpHover, .spinnerDownHover,
+.spinnerUpGrayed, .spinnerDownGrayed,
+.spinnerUpReleased, .spinnerDownReleased {
+	margin: 1px;
+	cursor: pointer;
+	cursor: hand;
+	height: 8px;
+    width: 15px;
+    margin: 1px;
+}
+
+.spinnerUpPressed {
+	background: url('epam_feel/spinner.png') no-repeat scroll 0px 0 transparent;
+}
+
+.spinnerDownPressed {
+	background: url('epam_feel/spinner.png') no-repeat scroll -60px 0 transparent;
+}
+
+.spinnerUpHover {
+	background: url('epam_feel/spinner.png') no-repeat scroll -15px 0 transparent;
+}
+
+.spinnerDownHover {
+	background: url('epam_feel/spinner.png') no-repeat scroll -75px 0 transparent;
+}
+
+.spinnerUpGrayed {
+	background: url('epam_feel/spinner.png') no-repeat scroll -30px 0 transparent;
+}
+
+.spinnerDownGrayed {
+	background: url('epam_feel/spinner.png') no-repeat scroll -90px 0 transparent;
+}
+
+.spinnerUpReleased {
+	background: url('epam_feel/spinner.png') no-repeat scroll -45px 0 transparent;
+}
+
+.spinnerDownReleased {
+	background: url('epam_feel/spinner.png') no-repeat scroll -105px 0 transparent;
+}
+
+.counterDishPadding {
+	padding: 0 3px;
+}
+
+.counter {
+    display: inline-block;
+    height: 12px;
+    vertical-align: middle;
+    width: 12px;
+}
+.counterPlus {
+    background: url("epam_feel/plus.png") no-repeat scroll 0 0 transparent;
+}
+.counterMinus {
+    background: url("epam_feel/minus.png") no-repeat scroll 0 0 transparent;
+}
+.counterPlus:hover {
+    background: url("epam_feel/plus-hover.png") no-repeat scroll 0 0 transparent;
+}
+.counterMinus:hover {
+    background: url("epam_feel/minus-hover.png") no-repeat scroll 0 0 transparent;
+}
+
+.logout {
+	background: url("epam_feel/logout.png") no-repeat scroll 0 0 transparent;
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	float:right;
+}
+
+.delimeterLineHeader {
+	border-top:	1px dashed #9A9A9A;
+	margin: 5px 0;
+}
+
+/*----float image style for chief dish view----*/
+.rightFloatImage {
+	float: right;
+    margin: 5px 5px 0px 0px;
+}
+
+.leftFloatImage {
+	float: left;
+    margin: 5px 5px 5px 5px;
+}
+
+.preMenuNameLabel {
+	color: #4b4a4a;
+	font-weight: bold;
+	padding-left: 5px;
+}
+
+.highlighted {
+	background: #f3bf78 !important;	
+}
+
+.highlightedRequired {
+	background: #f26269 !important;	
+}
+
+.waitingGlass {
+  background-color: #fff;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  background-image: url('epam_feel/waiting.gif');
+  background-position: center;
+  background-repeat: no-repeat;  
+}

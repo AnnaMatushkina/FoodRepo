@@ -1,0 +1,19 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with field='constants' type='com.epam.feel.client.EpamFeelConstants' />
+	<ui:with field='st' type='com.epam.feel.client.EpamFeelResources' />
+	<g:VerticalPanel>
+		<g:HorizontalPanel>
+			<g:Image width="20px" height="20px" ui:field="cookie"
+				url="epam_feel/cookies.png" title="{constants.isChiefDishField}"
+				altText="{constants.isChiefDishField}" />
+		    <g:SimplePanel ui:field="nameContainer"/>
+		</g:HorizontalPanel>
+		<g:FlowPanel>
+			<g:Image width="75px" height="75px" ui:field="image"
+				styleName="{st.global.leftFloatImage}" />
+			<g:Label ui:field="dishConsistency" styleName="{st.global.smallText}" />
+		</g:FlowPanel>
+	</g:VerticalPanel>
+</ui:UiBinder> 

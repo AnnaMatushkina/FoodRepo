@@ -1,0 +1,2 @@
+serviceClass: com.epam.feel.shared.service.HistoryInfoService
+path: C994BE10E7B9E19FAD722F0AD4348975.gwt.rpc

@@ -1,0 +1,30 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:feel="urn:import:com.epam.feel.client.ui.user"
+	xmlns:feel-admin="urn:import:com.epam.feel.client.ui.admin"
+	xmlns:epam-util="urn:import:com.epam.feel.client.ui.util.pagination">
+	<ui:with field='constants' type='com.epam.feel.client.EpamFeelConstants' />
+	<g:DockLayoutPanel unit='PX' height="100%" width="100%">
+		<g:north size="175">
+			<feel:MainHeader ui:field="header" />
+		</g:north>
+		<g:south size="30">
+			<feel:Footer ui:field="footer" />
+		</g:south>
+		<g:center>
+			<g:ScrollPanel alwaysShowScrollBars="false">
+				<g:VerticalPanel width="100%" spacing="5">
+					<g:Anchor text="{constants.goToMain}" ui:field="goToMain" />
+					<g:Anchor text="{constants.requestsLabel}" ui:field="goToArchiveRequests" />
+					<g:Label text="{constants.historyBalanceLabel}" ui:field="label" />
+					<g:VerticalPanel horizontalAlignment="CENTER" width="100%">
+						<epam-util:FixedPager ui:field="balancePager"
+							rangeLimited="true" height="30" />
+						<feel-admin:HistoryBalanceView
+							ui:field="historyBalance" forAdmin="false" />
+					</g:VerticalPanel>
+				</g:VerticalPanel>
+			</g:ScrollPanel>
+		</g:center>
+	</g:DockLayoutPanel>
+</ui:UiBinder> 

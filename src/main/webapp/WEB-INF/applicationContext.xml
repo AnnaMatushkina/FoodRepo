@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+                        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+                        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+                        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<context:annotation-config />
+
+	<context:component-scan base-package="com.epam.feel" />
+	<mvc:annotation-driven />
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+				<value>classpath:DefaultConfig.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+
+		<property name="minPoolSize" value="${hibernate.c3p0.min_size}" />
+		<property name="maxPoolSize" value="${hibernate.c3p0.max_size}" />
+		<property name="numHelperThreads" value="${hibernate.c3p0.min_size}" />
+		<property name="maxStatements" value="${hibernate.c3p0.max_statements}" />
+		<property name="idleConnectionTestPeriod" value="${hibernate.c3p0.idle_test_period}" />
+		<property name="loginTimeout" value="${hibernate.c3p0.timeout}" />
+		<property name="acquireIncrement" value="${hibernate.c3p0.acquire_increment}" />
+	</bean>
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		</property>
+		<property name="jpaDialect">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+		</property>
+		<property name="persistenceUnitName" value="epam-feel" />
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="jpaTemplate" class="org.springframework.orm.jpa.JpaTemplate">
+		<constructor-arg ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="clientinfoservice" class="com.epam.feel.server.service.ClientInfoServiceImpl" />
+	<bean id="menuinfoservice" class="com.epam.feel.server.service.MenuInfoServiceImpl" />
+	<bean id="requestinfoservice" class="com.epam.feel.server.service.RequestInfoServiceImpl" />
+	<bean id="historyinfoservice" class="com.epam.feel.server.service.HistoryInfoServiceImpl" />
+	
+	<bean id="mailSender" class="com.epam.feel.server.mail.WsMailSender"
+		lazy-init="true" />
+	<!-- <bean id="mailSender" class="com.epam.feel.server.mail.FakeMailSender" 
+		lazy-init="true"/> -->
+
+	<bean id="eventQueue"
+		class="com.epam.feel.server.notification.impl.EventQueueThreadPoolImpl" />
+	<!-- <bean id="eventQueue" class="com.epam.feel.server.notification.impl.EventQueueImpl"/> -->
+
+	<bean id="eventProcessorImpl"
+		class="com.epam.feel.server.notification.impl.EventProcessorImpl" />
+
+	<bean id="cleanuptask" class="com.epam.feel.server.service.CleanupBeanImpl" />
+
+	<task:scheduler id="menuUpdateSceduler" />
+	<task:scheduled-tasks scheduler="menuUpdateSceduler">
+		<task:scheduled ref="menuinfoservice" method="generateMenuToNextDay"
+			cron="0 0 23 * * ?" />
+	</task:scheduled-tasks>
+
+	<task:scheduler id="dbCleanupScheduler" />
+	<task:scheduled-tasks scheduler="dbCleanupScheduler">
+		<task:scheduled ref="cleanuptask" method="cleanUp"
+			fixed-delay="#{24 * 60 * 60 * 1000 * ${config.clean_period}}" />
+	</task:scheduled-tasks>
+
+</beans>

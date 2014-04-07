@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence">
+	<persistence-unit name="epam-feel">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<class>com.epam.feel.server.model.Account</class>
+		<class>com.epam.feel.server.model.Client</class>
+		<class>com.epam.feel.server.model.DishType</class>
+		<class>com.epam.feel.server.model.Menu</class>
+		<class>com.epam.feel.server.model.MenuDetails</class>
+		<class>com.epam.feel.server.model.Notification</class>
+		<class>com.epam.feel.server.model.Operation</class>
+		<class>com.epam.feel.server.model.Request</class>
+		<class>com.epam.feel.server.model.ExtendedRequest</class>
+		<class>com.epam.feel.server.model.RequestDetails</class>
+		<class>com.epam.feel.server.model.RequestGroup</class>
+		<class>com.epam.feel.server.model.Transaction</class>
+		<class>com.epam.feel.server.model.ExtendedRequestGroup</class>
+		<class>com.epam.feel.server.model.Image</class>
+
+		<exclude-unlisted-classes />
+
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider" />
+			<property name="hibernate.cache.use_query_cache" value="true" />
+			<property name="hibernate.cache.use_second_level_cache" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>

@@ -1,0 +1,29 @@
+/*
+	@author Michael_Silvanovich
+*/
+.dataGridHeader {
+		/*
+			Hacky trick to avoid of spaces between th-elements in IE
+		*/
+		padding: 3px 0px;
+}
+
+.dataGridCell {
+		text-align: left;
+		padding-left: 0px;
+}
+
+@if user.agent ie6 {
+	/*
+		Note: Internet Explorer 6 (and earlier versions) does not support the property value "transparent". (http://www.w3schools.com/cssref/pr_border-color.asp)
+		Hacky trick that makes transparent working in IE6 was found here: http://acidmartin.wordpress.com/2008/08/24/emulating-border-color-transparent-in-internet-explorer-6/
+	*/
+	*html .dataGridKeyboardSelectedRowCell {
+		border-color: pink;
+		filter: chroma(color=pink);
+	}
+} @else {
+	.dataGridKeyboardSelectedRowCell {
+		border-color: transparent;
+	}
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:c="urn:import:com.epam.feel.client.ui.util.pagination"
+	xmlns:epam="urn:import:com.epam.feel.client.ui.user"
+	xmlns:epam-util="urn:import:com.epam.feel.client.ui.util"
+	xmlns:feel-main="urn:import:com.epam.feel.client.ui.util.table"
+	xmlns:d="urn:import:com.google.gwt.user.cellview.client">
+	<ui:with field='constants' type='com.epam.feel.client.EpamFeelConstants' />
+	<g:DockLayoutPanel unit='PX' height="100%" width="100%">
+		<g:north size="175">
+			<epam:MainHeader ui:field="header" />
+		</g:north>
+		<g:south size="30">
+			<epam:Footer ui:field="footer" />
+		</g:south>
+		<g:center>
+			<g:ScrollPanel alwaysShowScrollBars="false">
+				<g:VerticalPanel width="100%" spacing="5">
+					<g:Anchor text="{constants.goToMain}" ui:field="goToMain" />
+					<g:Anchor text="{constants.historyBalanceLabel}" ui:field="historyPersonalBalance" />
+					<g:Label text="{constants.requestsLabel}" />
+					<g:HorizontalPanel spacing="5" verticalAlignment="middle">
+						<g:Label text="{constants.searchByDateLabel}" />
+						<epam-util:CalendarView ui:field="dateStartBox" />
+						<g:Label text="-" />
+						<epam-util:CalendarView ui:field="dateEndBox" />
+						<g:Button text="{constants.filterIt}" ui:field="submitFilter"/>
+					</g:HorizontalPanel>
+					<g:HorizontalPanel ui:field="widgetPanel">
+						<g:Button text="{constants.changeRequestField}" ui:field="editButton" />
+						<g:Button text="{constants.delete}" ui:field="delButton" />
+					</g:HorizontalPanel>
+					<g:Label ui:field="ordersLabel" text="{constants.noDataForView}"
+						horizontalAlignment="center" />
+					<g:VerticalPanel horizontalAlignment="CENTER"
+						width="100%">
+						<c:FixedPager ui:field="ordersPager" rangeLimited="true"
+							height="30" />
+						<c:SortableProvideredDataGrid height="200"
+							ui:field="orders" />
+					</g:VerticalPanel>
+					<feel-main:MenuTable ui:field="viewOrderPanel"
+						width="100%" borderWidth="1" />
+				</g:VerticalPanel>
+			</g:ScrollPanel>
+		</g:center>
+	</g:DockLayoutPanel>
+</ui:UiBinder> 

@@ -1,0 +1,159 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:c="urn:import:com.epam.feel.client.ui.util" xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:feel="urn:import:com.epam.feel.client.ui.util"
+	xmlns:box="urn:import:com.epam.feel.client.ui.util.box"
+	xmlns:table="urn:import:com.epam.feel.client.ui.util.table"
+	xmlns:highlight="urn:import:com.epam.feel.client.ui.util.highlighting" xmlns:upload="urn:import:com.epam.feel.client.ui.util.gwtupload">
+	<ui:with field='constants' type='com.epam.feel.client.EpamFeelConstants' />
+	<ui:with field='st' type='com.epam.feel.client.EpamFeelResources' />
+	<g:VerticalPanel>
+		<g:VerticalPanel ui:field="menuPanel">
+			<g:HorizontalPanel spacing="5" verticalAlignment="middle">
+				<g:Label text="{constants.menuListLabel}" />
+				<feel:CalendarView ui:field="dateStartBox" />
+				<g:Label text="-" />
+				<feel:CalendarView ui:field="dateEndBox" />
+				<g:Button text="{constants.filterIt}" ui:field="submitFilter"/>
+			</g:HorizontalPanel>
+			<g:Label text="{constants.noDataForView}" ui:field="emptyMenuListLabel" />
+			<g:VerticalPanel ui:field="menuTablePanel">
+				<g:DecoratorPanel>
+					<table:SortableDataGrid height="150" width="1500"
+						ui:field="menuTable" />
+				</g:DecoratorPanel>
+			</g:VerticalPanel>
+		</g:VerticalPanel>
+		<g:VerticalPanel width="100%">
+			<g:HorizontalPanel>
+				<g:Button text="{constants.createMenuField}" ui:field="createMenu" />
+				<g:Button text="{constants.copyMenuField}" ui:field="copyMenu"
+					visible="false" />
+				<g:Button text="{constants.saveMenuField}" ui:field="saveMenu"
+					visible="false" />
+				<g:Button text="{constants.unBlockMenuField}" ui:field="unBlockMenu"
+					visible="false" />
+				<g:Button text="{constants.blockMenuField}" ui:field="blockMenu"
+					visible="false" />
+				<g:Button text="{constants.deleteMenuField}" ui:field="deleteMenu"
+					visible="false" />
+			</g:HorizontalPanel>
+		</g:VerticalPanel>
+		<g:DecoratorPanel ui:field="menuEditPanel" visible="false">
+			<g:VerticalPanel>
+				<g:DecoratorPanel>
+					<g:VerticalPanel>
+						<g:HorizontalPanel spacing="10">
+							<g:Label text="{constants.menuForLabel}" styleName="{st.global.labelWithField}" />
+							<feel:CalendarView ui:field="newMenuDate"
+								width="75" />
+							<g:Label text="{constants.titleColumn}"
+								styleName="{st.global.labelWithField} {st.global.leftLargeMargin}" />
+							<highlight:HighlightableTextBox ui:field="newMenuTitle" maxLength="300"
+								width="550" />
+						</g:HorizontalPanel>
+						<g:HorizontalPanel spacing="10">
+							<g:HorizontalPanel>
+								<g:Label text="{constants.menuReceiptFromLabel}"
+									styleName="{st.global.labelWithField}" />
+								<g:HorizontalPanel>
+									<feel:CalendarView ui:field="newOrderStartDate"
+										styleName="{st.global.labelWithField}" width="75" />
+									<feel:TimeView ui:field="newOrderStartTime" />
+								</g:HorizontalPanel>
+								<g:Label text="{constants.menuReceiptToLabel}"
+									styleName="{st.global.labelBetweenFields}" />
+								<g:HorizontalPanel>
+									<feel:CalendarView ui:field="newOrderEndDate"
+										styleName="{st.global.labelWithField}" width="75" />
+									<feel:TimeView ui:field="newOrderEndTime" />
+								</g:HorizontalPanel>
+							</g:HorizontalPanel>
+							<g:HorizontalPanel styleName="{st.global.leftMediumMargin}">
+								<g:Label text="{constants.menuDeliveryFromLabel}"
+									styleName="{st.global.labelWithField}" />
+								<feel:TimeView ui:field="newOrderDeliveryStartTime" />
+								<g:Label text="{constants.menuDeliveryToLabel}"
+									styleName="{st.global.labelBetweenFields}" />
+								<feel:TimeView ui:field="newOrderDeliveryEndTime" />
+							</g:HorizontalPanel>
+						</g:HorizontalPanel>
+					</g:VerticalPanel>
+				</g:DecoratorPanel>
+				<g:HorizontalPanel ui:field="dishActions">
+					<g:Button text="{constants.addDishField}" ui:field="addDish" />
+					<g:Button text="{constants.editDishField}" ui:field="editDish" />
+					<g:Button text="{constants.delDishField}" ui:field="delDish" />
+				</g:HorizontalPanel>
+				<g:VerticalPanel ui:field="dishsTable">
+					<g:VerticalPanel ui:field="menuDetailsPanel">
+						<g:DecoratorPanel>
+							<table:SortableDataGrid height="380px" width="1500px"
+								ui:field="menuDetails" />
+						</g:DecoratorPanel>
+					</g:VerticalPanel>
+				</g:VerticalPanel>
+			</g:VerticalPanel>
+		</g:DecoratorPanel>
+		<g:VerticalPanel visible="false">
+			<g:DialogBox ui:field="dishEditorPanel" visible="false"
+				animationEnabled="true" autoHideOnHistoryEventsEnabled="true"
+				glassEnabled="true">
+				<g:VerticalPanel>
+					<g:HorizontalPanel spacing="10">
+						<g:HorizontalPanel>
+							<g:Label text="{constants.titleColumn}" styleName="{st.global.labelWithField}" />
+							<highlight:HighlightableTextBox ui:field="newTitleBox" maxLength="50" width="450px"/>
+						</g:HorizontalPanel>
+						<g:HorizontalPanel styleName="{st.global.leftSmallMargin}">
+							<g:Label text="{constants.dishTypeLabel}" styleName="{st.global.labelWithField}" />
+							<g:ListBox ui:field="newTypeDishes" width="150px" />
+						</g:HorizontalPanel>
+					</g:HorizontalPanel>
+					<g:HorizontalPanel spacing="10">
+						<g:HorizontalPanel>
+							<g:Label text="{constants.weightColumn}" styleName="{st.global.labelWithField}" />
+							<highlight:HighlightableIntegerBox ui:field="newWeightBox" width="80px"
+								maxLength="4" />
+						</g:HorizontalPanel>
+						<g:HorizontalPanel styleName="{st.global.leftSmallMargin}">
+							<g:Label text="{constants.priceColumn}" styleName="{st.global.labelWithField}" />
+							<box:ExtendedDoubleBox ui:field="newPriceBox" width="80px"
+								maxLength="11" />
+						</g:HorizontalPanel>
+						<g:HorizontalPanel styleName="{st.global.leftSmallMargin}">
+							<g:Label text="{constants.dishMaxCountlabel}" styleName="{st.global.labelWithField}" />
+							<highlight:HighlightableIntegerBox ui:field="newMaxCountBox" width="80px"
+								maxLength="3" />
+						</g:HorizontalPanel>
+						<g:HorizontalPanel styleName="{st.global.leftSmallMargin}">
+							<g:CheckBox text="{constants.isChiefDishField}"
+								ui:field="isChefDish" />
+						</g:HorizontalPanel>
+					</g:HorizontalPanel>
+					<g:HorizontalPanel spacing="10">
+						<g:Label text="{constants.structureColumn}:" styleName="{st.global.labelWithField}" />
+						<box:FixedLengthTextArea ui:field="newConsistBox"
+							width="700px" visibleLines="5" />
+					</g:HorizontalPanel>
+					<g:HorizontalPanel spacing="10">
+						<g:Label text="{constants.uploadPhotoLabel}" styleName="{st.global.labelWithField}" />
+						<upload:FixedSingleUploader fileInputSize='30' ui:field='newPhoto' type='BROWSER_INPUT'/>
+						<g:Button text="{constants.deletePhoto}" ui:field="imageDel"
+							visible="false" />
+						<g:HorizontalPanel ui:field="imageDish" />
+					</g:HorizontalPanel>
+					<g:HorizontalPanel spacing="10">
+						<g:Label text="URL" styleName="{st.global.labelWithField}" />
+						<g:TextBox maxLength="200" width="700px" ui:field="newURL" />
+					</g:HorizontalPanel>
+					<g:HorizontalPanel spacing="10"
+						styleName="{st.global.floatRight}">
+						<g:Button text="{constants.dialogConfirm}" ui:field="dialogOk" />
+						<g:Button text="{constants.cancel}" ui:field="dialogCancel" />
+					</g:HorizontalPanel>
+				</g:VerticalPanel>
+			</g:DialogBox>
+		</g:VerticalPanel>
+	</g:VerticalPanel>
+</ui:UiBinder>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 1.7.0//EN"
+		"http://google-web-toolkit.googlecode.com/svn/tags/1.7.0/distro-source/core/src/gwt-module.dtd">
+
+<module rename-to="epam_feel">
+	<inherits name="com.google.gwt.i18n.I18N"/>
+	<inherits name="com.google.gwt.inject.Inject"/>
+	<inherits name="com.google.gwt.user.User"/>
+	<inherits name="com.google.gwt.activity.Activity"/>
+	<inherits name="com.google.gwt.place.Place"/>
+	<inherits name="gwtupload.GWTUpload"/>
+	<inherits name="com.google.gwt.resources.Resources"/>
+	
+	<inherits name="com.google.gwt.user.theme.clean.Clean"/>
+	
+	<entry-point class="com.epam.feel.client.MainClassEntity"/>
+
+	<replace-with class="com.epam.feel.client.mvp.ClientFactoryImpl">
+		<when-type-is class="com.epam.feel.client.mvp.ClientFactory"/>
+	</replace-with>
+
+	<replace-with class="com.epam.feel.client.mvp.ViewFactoryImpl">
+		<when-type-is class="com.epam.feel.client.mvp.ViewFactory"/>
+	</replace-with>
+	
+	<extend-property name="locale" values="ru"/>
+ 	<set-property name="locale" value="ru" />
+
+	<source path="client"/>
+	<source path="shared"/>
+</module>

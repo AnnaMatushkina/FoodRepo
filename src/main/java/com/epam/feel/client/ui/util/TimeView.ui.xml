@@ -1,0 +1,12 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:p1="urn:import:com.google.gwt.user.cellview.client" xmlns:feel="urn:import:com.epam.feel.client.ui.util"
+	xmlns:box="urn:import:com.epam.feel.client.ui.util.box">
+<ui:with field='st' type='com.epam.feel.client.EpamFeelResources' />
+	<g:HorizontalPanel verticalAlignment="middle">
+		<box:ExtendedIntegerBox ui:field="hourBox" styleName="{st.global.timeViewInput}" />
+		<feel:SpinnerView ui:field="hourSpinner" />
+		<box:ExtendedIntegerBox ui:field="minuteBox" styleName="{st.global.timeViewInput}" />
+		<feel:SpinnerView ui:field="minuteSpinner" />
+	</g:HorizontalPanel>
+</ui:UiBinder> 

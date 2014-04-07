@@ -1,0 +1,2 @@
+serviceClass: com.epam.feel.shared.service.MenuInfoService
+path: 8223D41B22F3E5D69243812C71B20E66.gwt.rpc

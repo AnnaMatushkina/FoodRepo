@@ -1,0 +1,10 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with field='constants' type='com.epam.feel.client.EpamFeelConstants'/>
+	<ui:with field='st' type='com.epam.feel.client.EpamFeelResources' />
+	<g:HorizontalPanel ui:field="roleChooser">
+		<g:Anchor text="{constants.enterAsAdmin}" ui:field="asAdmin"/>
+		<g:Anchor text="{constants.enterAsClient}" ui:field="asUser"/>
+	</g:HorizontalPanel>
+</ui:UiBinder> 
